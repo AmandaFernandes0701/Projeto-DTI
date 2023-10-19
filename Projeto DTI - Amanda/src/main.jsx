@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
+import App from "./pages/App.jsx";
 
 import GlobalStyles from "./styles/GlobalStyles";
 import Theme from "./styles/Theme";
