@@ -58,3 +58,14 @@ export const Button = styled.button`
   height: 50px;
   color: red;
 `;
+
+export const CalculateButton = styled.button`
+  width: 50px;
+  height: 50px;
+  color: red;
+`;
+
+export const DivResult = styled.div`
+  display: flex;
+  flex-direction: column;
+`;

@@ -7,6 +7,8 @@ import {
   DateInput,
   DivButtons,
   Button,
+  CalculateButton,
+  DivResult,
 } from "./Styles";
 import { useState } from "react";
 
@@ -14,6 +16,7 @@ export default function App() {
   const [selectedDate, setSelectedDate] = useState("");
   const [numBigDogs, setNumBigDogs] = useState(0);
   const [numSmallDogs, setNumSmallDogs] = useState(0);
+  const [result, setResult] = useState("");
 
   const handleIncrementDecrement = (isBigDog, increment) => {
     if (isBigDog) {
@@ -26,6 +29,23 @@ export default function App() {
       if (newNumSmallDogs >= 0) {
         setNumSmallDogs(newNumSmallDogs);
       }
+    }
+  };
+
+  const handleCalculatePrice = () => {
+    if (selectedDate) {
+      const date = new Date(selectedDate);
+      const dayOfWeek = date.getDay();
+      const isWeekend = dayOfWeek === 0 || dayOfWeek === 6; // 0 is Sunday, 6 is Saturday
+      const priceSmallDogs = numSmallDogs * 20;
+      const priceBigDogs = numBigDogs * 40;
+      const totalPrice = isWeekend
+        ? (priceSmallDogs + priceBigDogs) * 1.2
+        : priceSmallDogs + priceBigDogs;
+
+      setResult(
+        `O melhor petshop que atenderá as suas necessidades é: ${totalPrice} reais.`
+      );
     }
   };
 
@@ -66,6 +86,11 @@ export default function App() {
           </Button>
         </DivButtons>
       </DivInput>
+
+      <CalculateButton onClick={handleCalculatePrice}>Enviar</CalculateButton>
+      <DivResult>
+        <p>{result}</p>
+      </DivResult>
     </Container>
   );
 }
