@@ -17,6 +17,7 @@ export default function App() {
   const [numBigDogs, setNumBigDogs] = useState(0);
   const [numSmallDogs, setNumSmallDogs] = useState(0);
   const [result, setResult] = useState("");
+  const [petShop, setpetShop] = useState("");
 
   const handleIncrementDecrement = (isBigDog, increment) => {
     if (isBigDog) {
@@ -36,16 +37,16 @@ export default function App() {
     if (selectedDate) {
       const date = new Date(selectedDate);
       const dayOfWeek = date.getDay();
-      const isWeekend = dayOfWeek === 0 || dayOfWeek === 6; // 0 is Sunday, 6 is Saturday
+      const isWeekend = dayOfWeek === 5 || dayOfWeek === 6; // 0 is Sunday, 6 is Saturday
       const priceSmallDogs = numSmallDogs * 20;
       const priceBigDogs = numBigDogs * 40;
       const totalPrice = isWeekend
         ? (priceSmallDogs + priceBigDogs) * 1.2
         : priceSmallDogs + priceBigDogs;
 
-      setResult(
-        `O melhor petshop que atenderá as suas necessidades é: ${totalPrice} reais.`
-      );
+      setpetShop("Meu Canino Feliz");
+      setResult(totalPrice);
+      console.log(isWeekend);
     }
   };
 
@@ -89,7 +90,8 @@ export default function App() {
 
       <CalculateButton onClick={handleCalculatePrice}>Enviar</CalculateButton>
       <DivResult>
-        <p>{result}</p>
+        <p>O petShop com melhor custo benefício é: {petShop}</p>
+        <p>O preço total a ser pago é: R${result},00</p>
       </DivResult>
     </Container>
   );
