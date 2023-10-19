@@ -11,6 +11,8 @@ import {
   DivResult,
 } from "./Styles";
 import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function App() {
   const [selectedDate, setSelectedDate] = useState("");
@@ -60,7 +62,11 @@ export default function App() {
   };
 
   const handleCalculatePrice = () => {
-    if (selectedDate) {
+    if (!selectedDate) {
+      toast.error("Favor inserir uma data ヽ(ಠ_ಠ)ノ");
+      return;
+    } else {
+      toast.success("Dados enviados com sucesso ✨");
       const date = new Date(selectedDate);
       const dayOfWeek = date.getDay();
       const isWeekend = dayOfWeek === 5 || dayOfWeek === 6;
@@ -147,6 +153,7 @@ export default function App() {
         <p>O petShop com melhor custo benefício é: {bestPetShop}</p>
         <p>O preço total a ser pago é: R${finalPrice},00</p>
       </DivResult>
+      <ToastContainer />
     </Container>
   );
 }

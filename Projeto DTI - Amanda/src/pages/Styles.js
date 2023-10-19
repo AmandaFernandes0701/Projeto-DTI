@@ -4,9 +4,11 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
-  background-color: pink;
+  background-color: black;
+  color: white;
   gap: 5rem;
 `;
 
@@ -22,10 +24,12 @@ export const DivSelect = styled.div`
 export const DivInput = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
 export const Label = styled.p`
-  font-size: 30px;
+  font-size: 20px;
+  padding-bottom: 20px;
 `;
 
 export const SelectDay = styled.select`
@@ -38,34 +42,65 @@ export const DivButtons = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 5rem;
+  gap: 1rem;
 `;
 
 export const DateInput = styled.input`
   width: 150px;
   height: 50px;
-  color: red;
+  font-family: "Montserrat";
+  padding-left: 10px;
+  padding-right: 4px;
+  border: 2px solid #b0b0b0;
+  border-radius: 10px;
 `;
 
 export const NumberInput = styled.input`
+  display: flex;
+  text-align: center;
   width: 50px;
   height: 50px;
-  color: red;
+  font-size: 2rem;
+  border: 2px solid #b0b0b0;
+  border-radius: 10px;
 `;
 
 export const Button = styled.button`
   width: 50px;
   height: 50px;
-  color: red;
+  border: none;
+  font-size: 3rem;
+  color: white;
+  border-radius: 100px;
+  background-color: #8257e5;
+
+  cursor: pointer;
+  transition: background-color 1s;
+
+  &:hover {
+    background-color: #4811ca;
+  }
 `;
 
 export const CalculateButton = styled.button`
-  width: 50px;
-  height: 50px;
-  color: red;
+  width: 20rem;
+  height: 5rem;
+  font-size: 2rem;
+  color: white;
+  background-color: transparent;
+  border: 2px solid #8257e5;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 1s;
+
+  &:hover {
+    background-color: #8257e5;
+  }
 `;
 
 export const DivResult = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
