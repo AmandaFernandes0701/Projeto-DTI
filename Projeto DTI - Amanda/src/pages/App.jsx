@@ -1,7 +1,11 @@
 import {
   Container,
+  DivTitle,
+  DivMain,
   Title,
+  Subtitle,
   DivInput,
+  LabelDate,
   Label,
   NumberInput,
   DateInput,
@@ -62,8 +66,8 @@ export default function App() {
   };
 
   const handleCalculatePrice = () => {
-    if (!selectedDate) {
-      toast.error("Favor inserir uma data ヽ(ಠ_ಠ)ノ");
+    if (!selectedDate || (numBigDogs === 0 && numSmallDogs === 0)) {
+      toast.error("Favor inserir os dados corretamente ヽ(ಠ_ಠ)ノ");
       return;
     } else {
       toast.success("Dados enviados com sucesso ✨");
@@ -112,41 +116,47 @@ export default function App() {
 
   return (
     <Container>
-      <Title>Bem vindo(a)!</Title>
-      <DivInput>
-        <Label>Selecione a data:</Label>
-        <DateInput
-          type="date"
-          value={selectedDate}
-          onChange={(e) => setSelectedDate(e.target.value)}
-        />
-      </DivInput>
+      <DivTitle>
+        <Title>Bem vinda(o)!</Title>
+        <Subtitle>Feito por: Amanda Fernandes 💜</Subtitle>
+      </DivTitle>
 
-      <DivInput>
-        <Label>Quantidade de cachorros grandes:</Label>
-        <DivButtons>
-          <Button onClick={() => handleIncrementDecrement(true, false)}>
-            -
-          </Button>
-          <NumberInput value={numBigDogs} readOnly />
-          <Button onClick={() => handleIncrementDecrement(true, true)}>
-            +
-          </Button>
-        </DivButtons>
-      </DivInput>
+      <DivMain>
+        <DivInput>
+          <LabelDate>Selecione a data:</LabelDate>
+          <DateInput
+            type="date"
+            value={selectedDate}
+            onChange={(e) => setSelectedDate(e.target.value)}
+          />
+        </DivInput>
 
-      <DivInput>
-        <Label>Quantidade de cachorros pequenos:</Label>
-        <DivButtons>
-          <Button onClick={() => handleIncrementDecrement(false, false)}>
-            -
-          </Button>
-          <NumberInput value={numSmallDogs} readOnly />
-          <Button onClick={() => handleIncrementDecrement(false, true)}>
-            +
-          </Button>
-        </DivButtons>
-      </DivInput>
+        <DivInput>
+          <Label>Quantidade de cachorros pequenos:</Label>
+          <DivButtons>
+            <Button onClick={() => handleIncrementDecrement(false, false)}>
+              -
+            </Button>
+            <NumberInput value={numSmallDogs} readOnly />
+            <Button onClick={() => handleIncrementDecrement(false, true)}>
+              +
+            </Button>
+          </DivButtons>
+        </DivInput>
+
+        <DivInput>
+          <Label>Quantidade de cachorros grandes:</Label>
+          <DivButtons>
+            <Button onClick={() => handleIncrementDecrement(true, false)}>
+              -
+            </Button>
+            <NumberInput value={numBigDogs} readOnly />
+            <Button onClick={() => handleIncrementDecrement(true, true)}>
+              +
+            </Button>
+          </DivButtons>
+        </DivInput>
+      </DivMain>
 
       <CalculateButton onClick={handleCalculatePrice}>Enviar</CalculateButton>
       <DivResult>

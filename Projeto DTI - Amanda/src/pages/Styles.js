@@ -12,8 +12,27 @@ export const Container = styled.div`
   gap: 5rem;
 `;
 
+export const DivTitle = styled.div`
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+`;
+
+export const DivMain = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  align-items: baseline;
+`;
+
 export const Title = styled.p`
   font-size: 100px;
+  font-family: "Roboto";
+`;
+
+export const Subtitle = styled.p`
+  font-size: 20px;
+  color: #b0b0b0;
 `;
 
 export const DivSelect = styled.div`
@@ -23,17 +42,26 @@ export const DivSelect = styled.div`
 
 export const DivInput = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 3rem;
+`;
+
+export const LabelDate = styled.p`
+  font-size: 20px;
+  text-align: left;
 `;
 
 export const Label = styled.p`
   font-size: 20px;
-  padding-bottom: 20px;
+  width: 40rem;
+  text-align: left;
 `;
 
 export const SelectDay = styled.select`
-  height: 5rem;
+  height: 50px;
   width: 50%;
   border-radius: 10px;
 `;
@@ -84,7 +112,7 @@ export const Button = styled.button`
 
 export const CalculateButton = styled.button`
   width: 20rem;
-  height: 5rem;
+  height: 50px;
   font-size: 2rem;
   color: white;
   background-color: transparent;

@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
 
@@ -19,12 +19,15 @@ body {
   background: white;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  width: 100%;
+  height: 100%;
 }
 
 html,
 body,
 #root {
   height: 100%;
+  width: 100%;
 }
 
 html {
