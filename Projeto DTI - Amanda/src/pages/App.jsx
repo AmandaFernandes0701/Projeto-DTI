@@ -16,8 +16,8 @@ export default function App() {
   const [selectedDate, setSelectedDate] = useState("");
   const [numBigDogs, setNumBigDogs] = useState(0);
   const [numSmallDogs, setNumSmallDogs] = useState(0);
-  const [result, setResult] = useState("");
-  const [petShop, setPetShop] = useState("");
+  const [bestPetShop, setBestPetShop] = useState("");
+  const [finalPrice, setFinalPrice] = useState("");
 
   const handleIncrementDecrement = (isBigDog, increment) => {
     if (isBigDog) {
@@ -40,17 +40,15 @@ export default function App() {
       ? (priceSmallDogs + priceBigDogs) * 1.2
       : priceSmallDogs + priceBigDogs;
 
-    setPetShop("Meu Canino Feliz");
-    setResult(totalPrice);
+    return totalPrice;
   };
 
   const handleCalculatePriceVaiRex = (isWeekend) => {
     const totalPrice = isWeekend
-      ? numSmallDogs * 15 + numBigDogs * 50
-      : numSmallDogs * 20 + numBigDogs * 55;
+      ? numSmallDogs * 20 + numBigDogs * 55
+      : numSmallDogs * 15 + numBigDogs * 50;
 
-    setPetShop("Vai Rex");
-    setResult(totalPrice);
+    return totalPrice;
   };
 
   const handleCalculatePriceChowChawgas = () => {
@@ -58,8 +56,7 @@ export default function App() {
     const priceBigDogs = numBigDogs * 45;
     const totalPrice = priceSmallDogs + priceBigDogs;
 
-    setPetShop("ChowChawgas");
-    setResult(totalPrice);
+    return totalPrice;
   };
 
   const handleCalculatePrice = () => {
@@ -67,10 +64,43 @@ export default function App() {
       const date = new Date(selectedDate);
       const dayOfWeek = date.getDay();
       const isWeekend = dayOfWeek === 5 || dayOfWeek === 6;
-      handleCalculatePriceMeuCaninoFeliz(isWeekend);
 
-      handleCalculatePriceVaiRex(isWeekend);
-      handleCalculatePriceChowChawgas();
+      const priceMeuCaninoFeliz = handleCalculatePriceMeuCaninoFeliz(isWeekend);
+      const priceVaiRex = handleCalculatePriceVaiRex(isWeekend);
+      const priceChowChawgas = handleCalculatePriceChowChawgas();
+
+      const minPrice = Math.min(
+        priceMeuCaninoFeliz,
+        priceVaiRex,
+        priceChowChawgas
+      );
+
+      const minPriceShops = [];
+      if (priceMeuCaninoFeliz === minPrice) {
+        minPriceShops.push({
+          name: "Meu Canino Feliz",
+          price: priceMeuCaninoFeliz,
+          distance: 2,
+        });
+      }
+      if (priceVaiRex === minPrice) {
+        minPriceShops.push({
+          name: "Vai Rex",
+          price: priceVaiRex,
+          distance: 1.7,
+        });
+      }
+      if (priceChowChawgas === minPrice) {
+        minPriceShops.push({
+          name: "ChowChawgas",
+          price: priceChowChawgas,
+          distance: 0.8,
+        });
+      }
+
+      minPriceShops.sort((a, b) => a.distance - b.distance);
+      setBestPetShop(minPriceShops[0].name);
+      setFinalPrice(minPriceShops[0].price);
     }
   };
 
@@ -114,8 +144,8 @@ export default function App() {
 
       <CalculateButton onClick={handleCalculatePrice}>Enviar</CalculateButton>
       <DivResult>
-        <p>O petShop com melhor custo benefício é: {petShop}</p>
-        <p>O preço total a ser pago é: R${result},00</p>
+        <p>O petShop com melhor custo benefício é: {bestPetShop}</p>
+        <p>O preço total a ser pago é: R${finalPrice},00</p>
       </DivResult>
     </Container>
   );
