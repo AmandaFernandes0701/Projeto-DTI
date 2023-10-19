@@ -17,7 +17,7 @@ export default function App() {
   const [numBigDogs, setNumBigDogs] = useState(0);
   const [numSmallDogs, setNumSmallDogs] = useState(0);
   const [result, setResult] = useState("");
-  const [petShop, setpetShop] = useState("");
+  const [petShop, setPetShop] = useState("");
 
   const handleIncrementDecrement = (isBigDog, increment) => {
     if (isBigDog) {
@@ -33,20 +33,44 @@ export default function App() {
     }
   };
 
+  const handleCalculatePriceMeuCaninoFeliz = (isWeekend) => {
+    const priceSmallDogs = numSmallDogs * 20;
+    const priceBigDogs = numBigDogs * 40;
+    const totalPrice = isWeekend
+      ? (priceSmallDogs + priceBigDogs) * 1.2
+      : priceSmallDogs + priceBigDogs;
+
+    setPetShop("Meu Canino Feliz");
+    setResult(totalPrice);
+  };
+
+  const handleCalculatePriceVaiRex = (isWeekend) => {
+    const totalPrice = isWeekend
+      ? numSmallDogs * 15 + numBigDogs * 50
+      : numSmallDogs * 20 + numBigDogs * 55;
+
+    setPetShop("Vai Rex");
+    setResult(totalPrice);
+  };
+
+  const handleCalculatePriceChowChawgas = () => {
+    const priceSmallDogs = numSmallDogs * 30;
+    const priceBigDogs = numBigDogs * 45;
+    const totalPrice = priceSmallDogs + priceBigDogs;
+
+    setPetShop("ChowChawgas");
+    setResult(totalPrice);
+  };
+
   const handleCalculatePrice = () => {
     if (selectedDate) {
       const date = new Date(selectedDate);
       const dayOfWeek = date.getDay();
-      const isWeekend = dayOfWeek === 5 || dayOfWeek === 6; // 0 is Sunday, 6 is Saturday
-      const priceSmallDogs = numSmallDogs * 20;
-      const priceBigDogs = numBigDogs * 40;
-      const totalPrice = isWeekend
-        ? (priceSmallDogs + priceBigDogs) * 1.2
-        : priceSmallDogs + priceBigDogs;
+      const isWeekend = dayOfWeek === 5 || dayOfWeek === 6;
+      handleCalculatePriceMeuCaninoFeliz(isWeekend);
 
-      setpetShop("Meu Canino Feliz");
-      setResult(totalPrice);
-      console.log(isWeekend);
+      handleCalculatePriceVaiRex(isWeekend);
+      handleCalculatePriceChowChawgas();
     }
   };
 
