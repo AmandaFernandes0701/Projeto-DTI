@@ -4,10 +4,10 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   width: 100%;
   height: 100%;
   background-color: black;
+  padding-top: 100px;
   color: white;
   gap: 5rem;
 `;
@@ -32,7 +32,7 @@ export const Title = styled.p`
 
 export const Subtitle = styled.p`
   font-size: 20px;
-  color: #b0b0b0;
+  color: ${(props) => props.theme.colors.lightGrey};
 `;
 
 export const DivSelect = styled.div`
@@ -66,7 +66,7 @@ export const SelectDay = styled.select`
   border-radius: 10px;
 `;
 
-export const DivButtons = styled.div`
+export const DivRow = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -79,7 +79,7 @@ export const DateInput = styled.input`
   font-family: "Montserrat";
   padding-left: 10px;
   padding-right: 4px;
-  border: 2px solid #b0b0b0;
+  border: 2px solid ${(props) => props.theme.colors.lightGrey};
   border-radius: 10px;
 `;
 
@@ -89,24 +89,24 @@ export const NumberInput = styled.input`
   width: 50px;
   height: 50px;
   font-size: 2rem;
-  border: 2px solid #b0b0b0;
+  border: 2px solid ${(props) => props.theme.colors.lightGrey};
   border-radius: 10px;
 `;
 
 export const Button = styled.button`
   width: 50px;
   height: 50px;
-  border: none;
-  font-size: 3rem;
-  color: white;
   border-radius: 100px;
-  background-color: #8257e5;
+  font-size: 3rem;
+  border: none;
+  color: white;
+  background-color: ${(props) => props.theme.colors.purple.primary};
 
   cursor: pointer;
   transition: background-color 1s;
 
   &:hover {
-    background-color: #4811ca;
+    background-color: ${(props) => props.theme.colors.purple.hover};
   }
 `;
 
@@ -122,7 +122,7 @@ export const CalculateButton = styled.button`
   transition: background-color 1s;
 
   &:hover {
-    background-color: #8257e5;
+    background-color: ${(props) => props.theme.colors.purple.primary};
   }
 `;
 
@@ -131,4 +131,18 @@ export const DivResult = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 4rem;
+`;
+
+export const LabelResult = styled.p`
+  font-size: 20px;
+  text-align: left;
+  color: ${(props) => props.theme.colors.lightGrey};
+`;
+
+export const PurpleLabelResult = styled.p`
+  font-size: 30px;
+  text-align: left;
+  color: ${(props) => props.theme.colors.purple.primary};
+  font-family: ${(props) => props.theme.fonts.roboto};
 `;

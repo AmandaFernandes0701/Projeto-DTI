@@ -9,9 +9,11 @@ import {
   Label,
   NumberInput,
   DateInput,
-  DivButtons,
+  DivRow,
   Button,
   CalculateButton,
+  LabelResult,
+  PurpleLabelResult,
   DivResult,
 } from "./Styles";
 import { useState } from "react";
@@ -24,6 +26,8 @@ export default function App() {
   const [numSmallDogs, setNumSmallDogs] = useState(0);
   const [bestPetShop, setBestPetShop] = useState("");
   const [finalPrice, setFinalPrice] = useState("");
+  const [showResult, setShowResult] = useState(false);
+  const [showFinalPrice, setShowFinalPrice] = useState(false);
 
   const handleIncrementDecrement = (isBigDog, increment) => {
     if (isBigDog) {
@@ -68,6 +72,9 @@ export default function App() {
   const handleCalculatePrice = () => {
     if (!selectedDate || (numBigDogs === 0 && numSmallDogs === 0)) {
       toast.error("Favor inserir os dados corretamente ヽ(ಠ_ಠ)ノ");
+      setShowFinalPrice(false);
+      setBestPetShop("");
+      setFinalPrice("");
       return;
     } else {
       toast.success("Dados enviados com sucesso ✨");
@@ -112,6 +119,8 @@ export default function App() {
       setBestPetShop(minPriceShops[0].name);
       setFinalPrice(minPriceShops[0].price);
     }
+    setShowResult(true);
+    setShowFinalPrice(true);
   };
 
   return (
@@ -133,7 +142,7 @@ export default function App() {
 
         <DivInput>
           <Label>Quantidade de cachorros pequenos:</Label>
-          <DivButtons>
+          <DivRow>
             <Button onClick={() => handleIncrementDecrement(false, false)}>
               -
             </Button>
@@ -141,12 +150,12 @@ export default function App() {
             <Button onClick={() => handleIncrementDecrement(false, true)}>
               +
             </Button>
-          </DivButtons>
+          </DivRow>
         </DivInput>
 
         <DivInput>
           <Label>Quantidade de cachorros grandes:</Label>
-          <DivButtons>
+          <DivRow>
             <Button onClick={() => handleIncrementDecrement(true, false)}>
               -
             </Button>
@@ -154,15 +163,27 @@ export default function App() {
             <Button onClick={() => handleIncrementDecrement(true, true)}>
               +
             </Button>
-          </DivButtons>
+          </DivRow>
         </DivInput>
       </DivMain>
 
       <CalculateButton onClick={handleCalculatePrice}>Enviar</CalculateButton>
-      <DivResult>
-        <p>O petShop com melhor custo benefício é: {bestPetShop}</p>
-        <p>O preço total a ser pago é: R${finalPrice},00</p>
-      </DivResult>
+
+      {showResult && (
+        <DivResult>
+          <DivRow>
+            <LabelResult>O petShop com melhor custo benefício é:</LabelResult>
+            <PurpleLabelResult>{bestPetShop}</PurpleLabelResult>
+          </DivRow>
+
+          <DivRow>
+            <LabelResult>O preço total a ser pago é:</LabelResult>
+            {showFinalPrice && (
+              <PurpleLabelResult>R${finalPrice},00</PurpleLabelResult>
+            )}
+          </DivRow>
+        </DivResult>
+      )}
       <ToastContainer />
     </Container>
   );
