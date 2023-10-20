@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-const firstBreakpoint = "700px";
-const secondBreakpoint = "530px";
-const thirdBreakpoint = "380px";
+const firstBreakpoint = '700px';
+const secondBreakpoint = '530px';
+const thirdBreakpoint = '380px';
 
 export const Container = styled.div`
   display: flex;
@@ -62,11 +62,6 @@ export const Subtitle = styled.p`
   }
 `;
 
-export const DivSelect = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
 export const DivInput = styled.div`
   display: flex;
   flex-direction: row;
@@ -84,30 +79,24 @@ export const DivInput = styled.div`
   }
 `;
 
-export const LabelDate = styled.p`
-  font-size: 20px;
-  text-align: left;
-
-  @media (max-width: ${firstBreakpoint}) {
-    text-align: center;
-  }
-  @media (max-width: ${secondBreakpoint}) {
-    font-size: 18px;
-  }
-`;
-
 export const Label = styled.p`
   font-size: 20px;
-  width: 40rem;
   text-align: left;
 
   @media (max-width: ${firstBreakpoint}) {
     text-align: center;
-    width: auto;
   }
   @media (max-width: ${secondBreakpoint}) {
     font-size: 18px;
   }
+  ${({ generic }) =>
+    generic &&
+    `
+    width: 40rem;
+    @media (max-width: ${firstBreakpoint}) {
+      width: auto;
+    }
+  `}
 `;
 
 export const SelectDay = styled.select`
@@ -124,18 +113,12 @@ export const DivRow = styled.div`
 
   @media (max-width: ${firstBreakpoint}) {
     font-size: 18px;
-  }
-`;
 
-export const DivRowResult = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 1rem;
-
-  @media (max-width: ${firstBreakpoint}) {
-    font-size: 18px;
-    flex-direction: column;
+    ${({ flexColumn }) =>
+      flexColumn &&
+      `
+      flex-direction: column;
+  `}
   }
 `;
 

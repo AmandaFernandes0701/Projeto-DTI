@@ -5,12 +5,10 @@ import {
   Title,
   Subtitle,
   DivInput,
-  LabelDate,
   Label,
   NumberInput,
   DateInput,
   DivRow,
-  DivRowResult,
   Button,
   CalculateButton,
   LabelResult,
@@ -41,6 +39,23 @@ export default function App() {
       const newNumSmallDogs = increment ? numSmallDogs + 1 : numSmallDogs - 1;
       if (newNumSmallDogs >= 0) {
         setNumSmallDogs(newNumSmallDogs);
+      }
+    }
+  };
+
+  const updateNumDogs = (isBigDog, value) => {
+    const newValue = parseInt(value);
+    if (!isNaN(newValue)) {
+      if (isBigDog) {
+        setNumBigDogs(newValue);
+      } else {
+        setNumSmallDogs(newValue);
+      }
+    } else {
+      if (isBigDog) {
+        setNumBigDogs(0);
+      } else {
+        setNumSmallDogs(0);
       }
     }
   };
@@ -79,7 +94,7 @@ export default function App() {
 
       <DivMain>
         <DivInput>
-          <LabelDate>Selecione a data:</LabelDate>
+          <Label>Selecione a data:</Label>
           <DateInput
             type='date'
             value={selectedDate}
@@ -88,21 +103,14 @@ export default function App() {
         </DivInput>
 
         <DivInput>
-          <Label>Quantidade de cachorros pequenos:</Label>
+          <Label generic>Quantidade de cachorros pequenos:</Label>
           <DivRow>
             <Button onClick={() => handleIncrementDecrement(false, false)}>
               -
             </Button>
             <NumberInput
               value={numSmallDogs}
-              onChange={(e) => {
-                const value = parseInt(e.target.value);
-                if (!isNaN(value)) {
-                  setNumSmallDogs(value);
-                } else {
-                  setNumSmallDogs(0);
-                }
-              }}
+              onChange={(e) => updateNumDogs(false, e.target.value)}
             />
             <Button onClick={() => handleIncrementDecrement(false, true)}>
               +
@@ -111,21 +119,14 @@ export default function App() {
         </DivInput>
 
         <DivInput>
-          <Label>Quantidade de cachorros grandes:</Label>
+          <Label generic>Quantidade de cachorros grandes:</Label>
           <DivRow>
             <Button onClick={() => handleIncrementDecrement(true, false)}>
               -
             </Button>
             <NumberInput
               value={numBigDogs}
-              onChange={(e) => {
-                const value = parseInt(e.target.value);
-                if (!isNaN(value)) {
-                  setNumBigDogs(value);
-                } else {
-                  setNumBigDogs(0);
-                }
-              }}
+              onChange={(e) => updateNumDogs(true, e.target.value)}
             />
             <Button onClick={() => handleIncrementDecrement(true, true)}>
               +
@@ -138,19 +139,19 @@ export default function App() {
 
       {showResult && (
         <DivResult>
-          <DivRowResult>
+          <DivRow flexColumn>
             <LabelResult>
               O Pet shop com o melhor custo benefício é:
             </LabelResult>
             <PurpleLabelResult>{bestPetShop}</PurpleLabelResult>
-          </DivRowResult>
+          </DivRow>
 
-          <DivRowResult>
+          <DivRow flexColumn>
             <LabelResult>O preço total a ser pago é:</LabelResult>
             {showFinalPrice && (
               <PurpleLabelResult>R${finalPrice},00</PurpleLabelResult>
             )}
-          </DivRowResult>
+          </DivRow>
         </DivResult>
       )}
     </Container>
