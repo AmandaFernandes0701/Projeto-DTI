@@ -16,7 +16,7 @@ html {
 body {
   font-family: ${(props) => props.theme.fonts.montserrat}, sans-serif;
   font-size: 1.4rem;
-  background: white;
+  background: black;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   width: 100%;

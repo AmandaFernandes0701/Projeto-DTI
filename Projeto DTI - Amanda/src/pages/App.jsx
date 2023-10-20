@@ -10,6 +10,7 @@ import {
   NumberInput,
   DateInput,
   DivRow,
+  DivRowResult,
   Button,
   CalculateButton,
   LabelResult,
@@ -17,7 +18,7 @@ import {
   DivResult,
 } from "./Styles";
 import { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function App() {
@@ -72,12 +73,16 @@ export default function App() {
   const handleCalculatePrice = () => {
     if (!selectedDate || (numBigDogs === 0 && numSmallDogs === 0)) {
       toast.error("Favor inserir os dados corretamente ヽ(ಠ_ಠ)ノ");
+      toast.clearWaitingQueue();
       setShowFinalPrice(false);
       setBestPetShop("");
       setFinalPrice("");
       return;
     } else {
-      toast.success("Dados enviados com sucesso ✨");
+      toast.success("Dados enviados com sucesso ✨", {
+        icon: "🚀",
+      });
+      toast.clearWaitingQueue();
       const date = new Date(selectedDate);
       const dayOfWeek = date.getDay();
       const isWeekend = dayOfWeek === 5 || dayOfWeek === 6;
@@ -171,20 +176,21 @@ export default function App() {
 
       {showResult && (
         <DivResult>
-          <DivRow>
-            <LabelResult>O petShop com melhor custo benefício é:</LabelResult>
+          <DivRowResult>
+            <LabelResult>
+              O Pet shop com o melhor custo benefício é:
+            </LabelResult>
             <PurpleLabelResult>{bestPetShop}</PurpleLabelResult>
-          </DivRow>
+          </DivRowResult>
 
-          <DivRow>
+          <DivRowResult>
             <LabelResult>O preço total a ser pago é:</LabelResult>
             {showFinalPrice && (
               <PurpleLabelResult>R${finalPrice},00</PurpleLabelResult>
             )}
-          </DivRow>
+          </DivRowResult>
         </DivResult>
       )}
-      <ToastContainer />
     </Container>
   );
 }

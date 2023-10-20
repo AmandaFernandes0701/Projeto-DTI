@@ -8,6 +8,7 @@ const theme = {
       hover: "#4811ca",
     },
     lightGrey: "#b0b0b0",
+    robinEggBlue: "#59C3C3",
   },
 
   fonts: {
