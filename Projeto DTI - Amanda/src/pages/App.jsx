@@ -93,7 +93,17 @@ export default function App() {
             <Button onClick={() => handleIncrementDecrement(false, false)}>
               -
             </Button>
-            <NumberInput value={numSmallDogs} readOnly />
+            <NumberInput
+              value={numSmallDogs}
+              onChange={(e) => {
+                const value = parseInt(e.target.value);
+                if (!isNaN(value)) {
+                  setNumSmallDogs(value);
+                } else {
+                  setNumSmallDogs(0);
+                }
+              }}
+            />
             <Button onClick={() => handleIncrementDecrement(false, true)}>
               +
             </Button>
@@ -106,7 +116,17 @@ export default function App() {
             <Button onClick={() => handleIncrementDecrement(true, false)}>
               -
             </Button>
-            <NumberInput value={numBigDogs} readOnly />
+            <NumberInput
+              value={numBigDogs}
+              onChange={(e) => {
+                const value = parseInt(e.target.value);
+                if (!isNaN(value)) {
+                  setNumBigDogs(value);
+                } else {
+                  setNumBigDogs(0);
+                }
+              }}
+            />
             <Button onClick={() => handleIncrementDecrement(true, true)}>
               +
             </Button>
