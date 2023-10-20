@@ -65,7 +65,7 @@ Para executar este projeto localmente, siga os seguintes passos:
 
 1. Clone o repositório para a sua máquina local:
    ```bash
-     [git clone https://github.com/AmandaFernandes0701/Frontend-SmartGym---Projeto-Trainee.git](https://github.com/AmandaFernandes0701/Projeto-DTI.git)
+     https://github.com/AmandaFernandes0701/Projeto-DTI.git
    
 2. Navegue até o diretório do projeto:
    ```bash
