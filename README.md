@@ -7,7 +7,7 @@ Em suma, o projeto realiza a seguinte ação: a partir dos dados fornecidos pelo
 ## Sumário
 - [Premissas Assumidas](#premissas-assumidas)
 - [Decisões de projeto](#decisões-de-projeto)
-- [Instruções para executar o sistema](#instruções-para-executar-o-projeto)
+- [Instruções para executar o sistema](#instruções-para-executar-o-sistema)
 
 ## Premissas Assumidas
 
@@ -41,7 +41,7 @@ Link do site da Rocketseat: https://www.rocketseat.com.br/
 
 Por conseguinte, eu adicionei todos os botões e inputs no arquivo jsx. Eu cogitei a ideia de usar alguma biblioteca ´ra pegar esses componentes já prontos, como o Bootstrap ou antd, por exemplo. Contudo, no fim acabei optando em fazer manualmente, já que eram coisas simples. Após isso, decidi que eu iria fazer tudo na mesma página, pra facilitar indentificação de bugs, erros de lógica e compreensão do código, de forma geral. Em seguida, eu criei uma lógica pra incrementar ou decrementar a quantidade de cachorros quando os botões fossem clicados. Depois disso, adicionei algumas configurações do eslint e do prettier pra facilitar o meu trabalho e melhorar a padronização / estética do código. Depois disso, eu decidi criar um Themes na pasta styles pra facilitar a estilização da página (caso eu queira mudar alguma estilização futuramente).
 
-Depois disso, eu comecei a estrturar a lógica do sistema. Eu comecei testando se a função estava pegando os dados corretament. Pra fazer isso, eu usei uma extensão chamada "console Ninja", ela é muito prática pois já mostra o resultado do console.log no poróprio código no VSCODE. Eu comecei calculando aoenas os valores do "Meu Canino Feliz" pra ter certeza que os resultados estavam corretos. Em seguida, eu montei as funções pra calcular o "Vai Rex" e "ChowChawgas". Como eu não tinha feito o teste unitário até então, eu calculei alguns valores na calculadora e fui comparando com o que estava sendo impresso no console. Quando eu vi que os resultados estavam batendo com o esperado, eu comecei a elaborar a lógica de prioridade com base na distância. Pra implementar essa função, eu decidi criar um objeto pra cada um dos Pet Shops. Esse objetos contém as seguintes informações: name, price e distance. A partir disso eu criei uma função que criava um vetor com os objetos que apresentassem os menores valores (em caso de empate) e partir disso eu chamei uma função pra ordenar esse vetor em ordem crescente com base no valor da distância.
+Depois disso, eu comecei a estrturar a lógica do sistema. Eu comecei testando se a função estava pegando os dados corretamente. Pra fazer isso, eu usei uma extensão chamada "console Ninja", ela é muito prática pois já mostra o resultado do console.log no poróprio código no VSCODE. Eu comecei calculando apenas os valores do "Meu Canino Feliz" pra ter certeza que os resultados estavam corretos. Em seguida, eu montei as funções pra calcular o "Vai Rex" e "ChowChawgas". Como eu não tinha feito o teste unitário até então, eu calculei alguns valores na calculadora e fui comparando com o que estava sendo impresso no console. Quando eu vi que os resultados estavam batendo com o esperado, eu comecei a elaborar a lógica de prioridade com base na distância. Pra implementar essa função, eu decidi criar um objeto pra cada um dos Pet Shops. Esse objetos contém as seguintes informações: "name", "price" e "distance". A partir disso eu criei uma função que criava um vetor com os objetos que apresentassem os menores valores (em caso de empate) e partir disso eu chamei uma função pra ordenar esse vetor em ordem crescente com base no valor da distância.
 
 Depois de muitos e muitos testes, eu comecei a mudar algumas coisas no Styles a fim de ajustar a responsividade do frontend. Até então ele é responsivo para todos os tamanhos de tela superiores ao tamanho do galaxy fold (width = 280px). Futuramente eu desejo melhorar o código e diminuir a quantidade de @medias, assim como a quantidade de div's desnecessárias. Por último, eu tive a ideia de usar toasts pra deixar o sistema mais dinâmico e interessante. Pra isso, eu fiz uso de uma biblioteca chamada React-toastify. Eu li a documentação dela e busquei por formas de estilizar os toats de acordo com as cores tema do sistema web.
 
@@ -61,11 +61,11 @@ Para executar este projeto localmente, siga os seguintes passos:
 
 1. Clone o repositório para a sua máquina local:
    ```bash
-     git clone https://github.com/AmandaFernandes0701/Frontend-SmartGym---Projeto-Trainee.git
+     [git clone https://github.com/AmandaFernandes0701/Frontend-SmartGym---Projeto-Trainee.git](https://github.com/AmandaFernandes0701/Projeto-DTI.git)
    
 2. Navegue até o diretório do projeto:
    ```bash
-    cd SmartGym
+    cd Projeto DTI - Amanda
 
 3. Instale as dependências do projeto:
    ```bash
@@ -73,5 +73,12 @@ Para executar este projeto localmente, siga os seguintes passos:
 
 4. Para iniciar o servidor de desenvolvimento e visualizar a aplicação localmente, execute:
    ```bash
-    npm start
+    npm run dev
 
+5. Caso você queira executar o código pelo terminal, vá para o seguinte diretório:
+   ```bash
+    Projeto DTI - Amanda\src\functions\terminalFunction.js
+
+6. Depois que você tiver executado o passo 5, basta inserir o camando abaixo no terminal:
+   ```bash
+    node terminalFunction.js
