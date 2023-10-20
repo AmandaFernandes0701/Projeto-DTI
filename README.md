@@ -7,6 +7,8 @@ Em suma, o projeto realiza a seguinte ação: a partir dos dados fornecidos pelo
 ## Sumário
 - [Premissas Assumidas](#premissas-assumidas)
 - [Decisões de projeto](#decisões-de-projeto)
+  - [Código Frontend](#código-frontend)
+  - [Código compilado no Terminal](#código-compilado-no-terminal)
 - [Instruções para executar o sistema](#instruções-para-executar-o-sistema)
 
 ## Premissas Assumidas
