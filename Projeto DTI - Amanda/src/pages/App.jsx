@@ -16,18 +16,18 @@ import {
   LabelResult,
   PurpleLabelResult,
   DivResult,
-} from "./Styles";
-import { useState } from "react";
-import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { calculateBestPetShop } from "../functions/calculatePrices";
+} from './Styles';
+import { useState } from 'react';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { calculateBestPetShop } from '../functions/calculatePrices';
 
 export default function App() {
-  const [selectedDate, setSelectedDate] = useState("");
+  const [selectedDate, setSelectedDate] = useState('');
   const [numBigDogs, setNumBigDogs] = useState(0);
   const [numSmallDogs, setNumSmallDogs] = useState(0);
-  const [bestPetShop, setBestPetShop] = useState("");
-  const [finalPrice, setFinalPrice] = useState("");
+  const [bestPetShop, setBestPetShop] = useState('');
+  const [finalPrice, setFinalPrice] = useState('');
   const [showResult, setShowResult] = useState(false);
   const [showFinalPrice, setShowFinalPrice] = useState(false);
 
@@ -47,15 +47,15 @@ export default function App() {
 
   const handleCalculatePrice = () => {
     if (!selectedDate || (numBigDogs === 0 && numSmallDogs === 0)) {
-      toast.error("Favor inserir os dados corretamente ヽ(ಠ_ಠ)ノ");
+      toast.error('Favor inserir os dados corretamente ヽ(ಠ_ಠ)ノ');
       toast.clearWaitingQueue();
       setShowFinalPrice(false);
-      setBestPetShop("");
-      setFinalPrice("");
+      setBestPetShop('');
+      setFinalPrice('');
       return;
     } else {
-      toast.success("Dados enviados com sucesso ✨", {
-        icon: "🚀",
+      toast.success('Dados enviados com sucesso ✨', {
+        icon: '🚀',
       });
       toast.clearWaitingQueue();
       const { name, price } = calculateBestPetShop(
@@ -81,7 +81,7 @@ export default function App() {
         <DivInput>
           <LabelDate>Selecione a data:</LabelDate>
           <DateInput
-            type="date"
+            type='date'
             value={selectedDate}
             onChange={(e) => setSelectedDate(e.target.value)}
           />
