@@ -20,6 +20,7 @@ import {
 import { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { calculateBestPetShop } from "../functions/calculatePrices";
 
 export default function App() {
   const [selectedDate, setSelectedDate] = useState("");
@@ -44,32 +45,6 @@ export default function App() {
     }
   };
 
-  const handleCalculatePriceMeuCaninoFeliz = (isWeekend) => {
-    const priceSmallDogs = numSmallDogs * 20;
-    const priceBigDogs = numBigDogs * 40;
-    const totalPrice = isWeekend
-      ? (priceSmallDogs + priceBigDogs) * 1.2
-      : priceSmallDogs + priceBigDogs;
-
-    return totalPrice;
-  };
-
-  const handleCalculatePriceVaiRex = (isWeekend) => {
-    const totalPrice = isWeekend
-      ? numSmallDogs * 20 + numBigDogs * 55
-      : numSmallDogs * 15 + numBigDogs * 50;
-
-    return totalPrice;
-  };
-
-  const handleCalculatePriceChowChawgas = () => {
-    const priceSmallDogs = numSmallDogs * 30;
-    const priceBigDogs = numBigDogs * 45;
-    const totalPrice = priceSmallDogs + priceBigDogs;
-
-    return totalPrice;
-  };
-
   const handleCalculatePrice = () => {
     if (!selectedDate || (numBigDogs === 0 && numSmallDogs === 0)) {
       toast.error("Favor inserir os dados corretamente ヽ(ಠ_ಠ)ノ");
@@ -83,46 +58,13 @@ export default function App() {
         icon: "🚀",
       });
       toast.clearWaitingQueue();
-      const date = new Date(selectedDate);
-      const dayOfWeek = date.getDay();
-      const isWeekend = dayOfWeek === 5 || dayOfWeek === 6;
-
-      const priceMeuCaninoFeliz = handleCalculatePriceMeuCaninoFeliz(isWeekend);
-      const priceVaiRex = handleCalculatePriceVaiRex(isWeekend);
-      const priceChowChawgas = handleCalculatePriceChowChawgas();
-
-      const minPrice = Math.min(
-        priceMeuCaninoFeliz,
-        priceVaiRex,
-        priceChowChawgas
+      const { name, price } = calculateBestPetShop(
+        selectedDate,
+        numSmallDogs,
+        numBigDogs
       );
-
-      const minPriceShops = [];
-      if (priceMeuCaninoFeliz === minPrice) {
-        minPriceShops.push({
-          name: "Meu Canino Feliz",
-          price: priceMeuCaninoFeliz,
-          distance: 2,
-        });
-      }
-      if (priceVaiRex === minPrice) {
-        minPriceShops.push({
-          name: "Vai Rex",
-          price: priceVaiRex,
-          distance: 1.7,
-        });
-      }
-      if (priceChowChawgas === minPrice) {
-        minPriceShops.push({
-          name: "ChowChawgas",
-          price: priceChowChawgas,
-          distance: 0.8,
-        });
-      }
-
-      minPriceShops.sort((a, b) => a.distance - b.distance);
-      setBestPetShop(minPriceShops[0].name);
-      setFinalPrice(minPriceShops[0].price);
+      setBestPetShop(name);
+      setFinalPrice(price);
     }
     setShowResult(true);
     setShowFinalPrice(true);
