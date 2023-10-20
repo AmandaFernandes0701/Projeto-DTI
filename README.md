@@ -1,8 +1,8 @@
 # Projeto-DTI --> Case Pet Shop  🐶🐾
 Em suma, o projeto realiza a seguinte ação: a partir dos dados fornecidos pelo usuário, ele checa qual  Pet Shop propõem o melhor custo benefício para o cliente a partir dos dados inseridos. Para a realização desse projeto, é válido salientar que eu atuei em duas frentes:
 
-- Frontend que pode ser executado no navegado
-- Arquivo js que é rodado no próprio terminal
+- Frontend que pode ser executado no navegador
+- Arquivo js que é executado no próprio terminal
 
 ## Sumário
 - [Premissas Assumidas](#premissas-assumidas)
@@ -21,12 +21,20 @@ Ao desenvolver a solução para determinar o melhor petshop para Eduardo levar s
 
 4. **Empate Resolvido pela Proximidade:** Em caso de empate entre dois ou mais petshops em termos de custo total, a decisão final será baseada na proximidade física. O petshop mais próximo do canil de Eduardo será considerado o melhor em caso de empate.
 
-5. **Entrada de Dados Corretamente Fornecida:** É assumido que o usuário inserirá as informações necessárias de maneira correta e no formato esperado, incluindo o tamanho dos cães (pequenos ou grandes) e o dia da semana em que pretende agendar o banho.
+5. **Entrada de Dados Corretamente Fornecida:** É assumido que o usuário inserirá as informações necessárias de maneira correta e no formato esperado, incluindo o tamanho dos cães (pequenos ou grandes) e a data que pretende agendar o banho.
 
 Essas premissas são essenciais para a correta execução do algoritmo de determinação do melhor petshop e ajudam a estabelecer os critérios e limitações do sistema, proporcionando uma base sólida para a tomada de decisão.
 
 ## Decisões de projeto
-aaaaaaaaa
+Ao longo da implementação do projeto, foi-se necessário a tomada de várias decisões de acordo com as minhas preferências, assim como as áreas de conhecimento nas quais eu já havia um bom "background". Desse modo, eu decidi utilizar a linguagem JavaScript, uma vez que essa é a linguagem na qual eu já estou familiarizada. Além disso, como já foi citado anteriormente, eu decidi ir além do que havia sido proposto pela case e também implementei o Frontend (responsivo e acessível). Desse modo, a decisão de projetos será distrinchada em duas vertentes. Outrossmim, no que diz respeito da lógica das funções para calcular os preços, eu decidi usar a mesma função tanto pro código do Frontend que é executado no navegador, quanto no código js que é compilado no próprio terminal. Essa decisão foi um fator muito importante na minha tomada de decisões pois me poupou muito tenpo.
+
+### Código Frontend
+Antes de tudo, eu optei por começar pelo design do meu sistema, dado que essa é umas das minhas partes prediletas. Dessa forma, eu utilizei o figma para fazer alguns testes e decidir qual seria a proposta do meu design. Por fim, acabei optando por me inspirar no site do rocketseat, pois eu gosto de cores com alto contraste, além de adorar a combinação do roxo com preto! Pra isso, eu inspecionei os elementos do site para que eu pudesse pegar os valores específicos dos componentes do site.
+
+Link do site da Rocketseat: https://www.rocketseat.com.br/
+
+
+### Código compilado no Terminal
 
 ## Instruções para executar o sistema
 Para executar este projeto localmente, siga os seguintes passos:
