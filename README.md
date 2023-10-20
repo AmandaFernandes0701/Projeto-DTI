@@ -31,8 +31,11 @@ Ao longo da implementação do projeto, foi-se necessário a tomada de várias d
 Em relação à padronização do código, eu tive cuidado com os seguintes pontos:
 
 - Estrutura e Oganização de pastas
-- Padronização de nome de variáveis (CamelCase)
+- Padronização de nome de variáveis, pastas e arquivos gerais (CamelCase)
+- Padronização de nome de pastas e aquivos em "pages" (PascalCase)
+- Padronização de nome de 
 - Configuração do Eslint + Prettier
+- Linguagem padrão: Inglês
 
 ### Código Frontend
 Antes de tudo, eu optei por começar pelo design do meu sistema, dado que essa é umas das minhas partes prediletas. Dessa forma, eu utilizei o figma para fazer alguns testes e decidir qual seria a proposta do meu design. Por fim, acabei optando por me inspirar no site da Rocketseat, pois eu gosto de cores com alto contraste, além de adorar a combinação do roxo com preto! Pra isso, eu inspecionei os elementos do site para que eu pudesse pegar os valores específicos de cada um dos componentes.
