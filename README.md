@@ -5,18 +5,18 @@ Em suma, o projeto realiza a seguinte ação: a partir dos dados fornecidos pelo
 - Arquivo js que é rodado no próprio terminal
 
 ## Sumário
-
 - [Premissas Assumidas](#premissas-assumidas)
 - [Decisões de projeto](#decisoes-de-projeto)
 - [Instalação](#instalação)
 - [Instruções para executar o sistema](#instrucoes-para-executar-o-projeto)
 
 ## Premissas Assumidas
+oiiii
 
 ## Decisões de projeto
+aaaaaaaaa
 
 ## Instruções para executar o sistema
-
 Para executar este projeto localmente, siga os seguintes passos:
 
 1. Clone o repositório para a sua máquina local:
