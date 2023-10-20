@@ -6,8 +6,8 @@ Em suma, o projeto realiza a seguinte ação: a partir dos dados fornecidos pelo
 
 ## Sumário
 - [Premissas Assumidas](#premissas-assumidas)
-- [Decisões de projeto](#decisoes-de-projeto)
-- [Instruções para executar o sistema](#instrucoes-para-executar-o-projeto)
+- [Decisões de projeto](#decisões-de-projeto)
+- [Instruções para executar o sistema](#instruções-para-executar-o-projeto)
 
 ## Premissas Assumidas
 
@@ -43,9 +43,18 @@ Por conseguinte, eu adicionei todos os botões e inputs no arquivo jsx. Eu cogit
 
 Depois disso, eu comecei a estrturar a lógica do sistema. Eu comecei testando se a função estava pegando os dados corretament. Pra fazer isso, eu usei uma extensão chamada "console Ninja", ela é muito prática pois já mostra o resultado do console.log no poróprio código no VSCODE. Eu comecei calculando aoenas os valores do "Meu Canino Feliz" pra ter certeza que os resultados estavam corretos. Em seguida, eu montei as funções pra calcular o "Vai Rex" e "ChowChawgas". Como eu não tinha feito o teste unitário até então, eu calculei alguns valores na calculadora e fui comparando com o que estava sendo impresso no console. Quando eu vi que os resultados estavam batendo com o esperado, eu comecei a elaborar a lógica de prioridade com base na distância. Pra implementar essa função, eu decidi criar um objeto pra cada um dos Pet Shops. Esse objetos contém as seguintes informações: name, price e distance. A partir disso eu criei uma função que criava um vetor com os objetos que apresentassem os menores valores (em caso de empate) e partir disso eu chamei uma função pra ordenar esse vetor em ordem crescente com base no valor da distância.
 
-Depois de muitos e muitos testes, eu comecei a mudar algumas coisas no Styles a fim de ajustar a responsividade do frontend. Até então ele é responsivo para todos os tamanhos de tela superiores ao tamanho do galaxy fold (width = 280px). Futuramente eu desejo melhorar o código e diminuir a quantidade de @medias, assim como a quantidade de div's desnecessárias.
+Depois de muitos e muitos testes, eu comecei a mudar algumas coisas no Styles a fim de ajustar a responsividade do frontend. Até então ele é responsivo para todos os tamanhos de tela superiores ao tamanho do galaxy fold (width = 280px). Futuramente eu desejo melhorar o código e diminuir a quantidade de @medias, assim como a quantidade de div's desnecessárias. Por último, eu tive a ideia de usar toasts pra deixar o sistema mais dinâmico e interessante. Pra isso, eu fiz uso de uma biblioteca chamada React-toastify. Eu li a documentação dela e busquei por formas de estilizar os toats de acordo com as cores tema do sistema web.
+
+Eu também estava cogitando a ideia de adicionar uma imagem ao lado do título, pra isso, pesquisei algumas imagens no site: https://storyset.com/dog
+Todavia, haja visto que o meu tempo estava escasso, optei por deixar isso de lado e focar em fazer o código compilado no terminal, dado que esse é um requisito fundamental da case.
 
 ### Código compilado no Terminal
+Assimm que eu terminei de fazer o código do Frontend executado no navegador, eu comecei a fazer o código do terminal. Por eu já ter a função pronta, consegui fazer essa segunda parte bem mais rápido. Eu decidi criar um arquivo chamado terminalFunction.js exclusivamente pra compilar o código no terminal. Até então, eu só tinha experiência em executar códigos pelo terminal usando C++. Por isso, fazer um código desse jeito usando JS foi uma experiência muito enriquecedora e desafiadora. O primeiro desafio que eu encontrei foi "como conseguir compilar esse código no terminal adequadamente?". Sendo assim, eu pesquisei na internet e acabei descobrindo uma forma muito interessante de fazer isso. Eu usei uma função chamada readline.createInterface e também instalei algumas dependências que eram requisitadas. Depois disso, eu fui fazendo as adaptações necessárias e fui testando o código várias vezes.
+
+Por fim, quando ele já estava funcionando perfeitamente, eu decidi pesquisar algumas formas interessantes de estilizar o terminal e deixar ele mais agradável aos olhos. Em seguida, percebi que eu ainda podia melhorar muita coisa no código. Então eu fiz o seguinte:
+
+- Deixar restrito o formato da data inserida pelo usuário: pra fazer isso, eu usei uma biblioteca chamada date-fns
+- Possibilitar que o usuário chame a função novamente, quando ela for finalizada (caso ele queira)
 
 ## Instruções para executar o sistema
 Para executar este projeto localmente, siga os seguintes passos:
