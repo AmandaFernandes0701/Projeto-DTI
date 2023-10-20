@@ -28,10 +28,18 @@ Essas premissas são essenciais para a correta execução do algoritmo de determ
 ## Decisões de projeto
 Ao longo da implementação do projeto, foi-se necessário a tomada de várias decisões de acordo com as minhas preferências, assim como as áreas de conhecimento nas quais eu já havia um bom "background". Desse modo, eu decidi utilizar a linguagem JavaScript, uma vez que essa é a linguagem na qual eu já estou familiarizada. Além disso, como já foi citado anteriormente, eu decidi ir além do que havia sido proposto pela case e também implementei o Frontend (responsivo e acessível). Desse modo, a decisão de projetos será distrinchada em duas vertentes. Outrossmim, no que diz respeito da lógica das funções para calcular os preços, eu decidi usar a mesma função tanto pro código do Frontend que é executado no navegador, quanto no código js que é compilado no próprio terminal. Essa decisão foi um fator muito importante na minha tomada de decisões pois me poupou muito tenpo.
 
+Em relação à padronização do código, eu tive cuidado com os seguintes pontos:
+
+- Estrutura e Oganização de pastas
+- Padronização de nome de variáveis (CamelCase)
+- Configuração do Eslint + Prettier
+
 ### Código Frontend
 Antes de tudo, eu optei por começar pelo design do meu sistema, dado que essa é umas das minhas partes prediletas. Dessa forma, eu utilizei o figma para fazer alguns testes e decidir qual seria a proposta do meu design. Por fim, acabei optando por me inspirar no site do rocketseat, pois eu gosto de cores com alto contraste, além de adorar a combinação do roxo com preto! Pra isso, eu inspecionei os elementos do site para que eu pudesse pegar os valores específicos dos componentes do site.
 
 Link do site da Rocketseat: https://www.rocketseat.com.br/
+
+Por conseguinte, eu adicionei todos os botões e inputs. Após isso, decidi que eu iria fazer tudo na mesma página, pra facilitar indentificação de bugs, erros de lógica e compreensão do código, de forma geral. Logo após isso, eu criei uma lógica pra incrementar ou decrementar a quantidade de cachorros quando os botões fossem clicados. Depois disso, adicionei algumas configurações do eslint e do prettier pra facilitar o meu trabalho e melhorar a padronização / estética do código. Depois disso, eu decidi criar um Themes na pasta styles pra facilitar a estilização da página (caso eu queira mudar coisas gerais futuramente).
 
 
 ### Código compilado no Terminal
