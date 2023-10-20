@@ -50,6 +50,8 @@ Depois de muitos e muitos testes, eu comecei a mudar algumas coisas no Styles a 
 Eu também estava cogitando a ideia de adicionar uma imagem ao lado do título, pra isso, pesquisei algumas imagens no site: https://storyset.com/dog
 Todavia, haja visto que o meu tempo estava escasso, optei por deixar isso de lado e focar em fazer o código compilado no terminal, dado que esse é um requisito fundamental da case.
 
+Futuramente, eu almejo estilizar o date Picker, usando a biblioteca do Material Design --> Link: https://m3.material.io/components/date-pickers/specs. Não fiz isso justamente pela questão de "prioridades".
+
 ### Código compilado no Terminal
 Assimm que eu terminei de fazer o código do Frontend executado no navegador, eu comecei a fazer o código do terminal. Por eu já ter a função pronta, consegui fazer essa segunda parte bem mais rápido. Eu decidi criar um arquivo chamado terminalFunction.js exclusivamente pra compilar o código no terminal. Até então, eu só tinha experiência em executar códigos pelo terminal usando C++. Por isso, fazer um código desse jeito usando JS foi uma experiência muito enriquecedora e desafiadora. O primeiro impedimento que eu encontrei foi "como conseguir compilar esse código no terminal adequadamente?". Sendo assim, eu pesquisei na internet e acabei descobrindo uma forma muito interessante de fazer isso. Eu usei uma função chamada readline.createInterface e também instalei algumas dependências que eram requisitadas. Depois disso, eu fui fazendo as adaptações necessárias e fui testando o código várias vezes.
 
