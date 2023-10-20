@@ -40,17 +40,17 @@ export function calculateBestPetShop(selectedDate, numSmallDogs, numBigDogs) {
   const minPriceShops = [];
   if (priceMeuCaninoFeliz === minPrice) {
     minPriceShops.push({
-      name: "Meu Canino Feliz",
+      name: 'Meu Canino Feliz',
       price: priceMeuCaninoFeliz,
       distance: 2,
     });
   }
   if (priceVaiRex === minPrice) {
-    minPriceShops.push({ name: "Vai Rex", price: priceVaiRex, distance: 1.7 });
+    minPriceShops.push({ name: 'Vai Rex', price: priceVaiRex, distance: 1.7 });
   }
   if (priceChowChawgas === minPrice) {
     minPriceShops.push({
-      name: "ChowChawgas",
+      name: 'ChowChawgas',
       price: priceChowChawgas,
       distance: 0.8,
     });
