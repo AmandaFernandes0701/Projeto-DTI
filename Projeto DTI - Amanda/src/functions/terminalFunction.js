@@ -1,11 +1,17 @@
 import readline from 'readline';
 import { calculateBestPetShop } from './calculatePrices.js';
 import chalk from 'chalk';
+import { parse, isValid } from 'date-fns';
 
 function getInput(question) {
   return new Promise((resolve) => {
     rl.question(question, resolve);
   });
+}
+
+function isValidDate(dateStr) {
+  const parsedDate = parse(dateStr, 'dd/MM/yyyy', new Date());
+  return isValid(parsedDate);
 }
 
 async function terminalFunction() {
@@ -22,9 +28,21 @@ async function terminalFunction() {
   let repeatAgain = true;
 
   while (repeatAgain) {
-    const selectedDate = await getInput(
-      chalk.italic('\nInforme a data no formato dia/mes/ano: ')
-    );
+    let selectedDate = '';
+
+    // Loop para garantir uma data válida
+    while (true) {
+      selectedDate = await getInput(
+        chalk.italic('\nInforme a data no formato dd/mm/aaaa: ')
+      );
+
+      if (isValidDate(selectedDate)) {
+        break;
+      } else {
+        console.log(chalk.red('Data inválida. Tente novamente 😭💔'));
+      }
+    }
+
     const numSmallDogs = parseInt(
       await getInput(
         chalk.italic('\nInsira a quantidade de cachorros pequenos: ')
