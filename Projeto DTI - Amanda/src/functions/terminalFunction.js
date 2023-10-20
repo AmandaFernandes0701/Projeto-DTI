@@ -1,7 +1,7 @@
 import readline from 'readline';
 import { calculateBestPetShop } from './calculatePrices.js';
 import chalk from 'chalk';
-import { parse, isValid } from 'date-fns';
+import { parse, isValid, format } from 'date-fns';
 
 function getInput(question) {
   return new Promise((resolve) => {
@@ -12,6 +12,11 @@ function getInput(question) {
 function isValidDate(dateStr) {
   const parsedDate = parse(dateStr, 'dd/MM/yyyy', new Date());
   return isValid(parsedDate);
+}
+
+function convertDateFormat(dateStr) {
+  const parsedDate = parse(dateStr, 'dd/MM/yyyy', new Date());
+  return format(parsedDate, 'yyyy-MM-dd');
 }
 
 async function terminalFunction() {
@@ -30,7 +35,6 @@ async function terminalFunction() {
   while (repeatAgain) {
     let selectedDate = '';
 
-    // Loop para garantir uma data válida
     while (true) {
       selectedDate = await getInput(
         chalk.italic('\nInforme a data no formato dd/mm/aaaa: ')
@@ -56,8 +60,10 @@ async function terminalFunction() {
       10
     );
 
+    const convertedDate = convertDateFormat(selectedDate);
+
     const bestPetShop = calculateBestPetShop(
-      selectedDate,
+      convertedDate,
       numSmallDogs,
       numBigDogs
     );
