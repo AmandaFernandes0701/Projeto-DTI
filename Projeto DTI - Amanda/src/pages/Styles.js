@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const firstBreakpoint = '700px';
 const secondBreakpoint = '530px';
@@ -114,11 +114,11 @@ export const DivRow = styled.div`
   @media (max-width: ${firstBreakpoint}) {
     font-size: 18px;
 
-    ${({ flexColumn }) =>
-      flexColumn &&
-      `
-      flex-direction: column;
-  `}
+    ${(props) =>
+      props.flexcolumn &&
+      css`
+        flex-direction: column;
+      `}
   }
 `;
 

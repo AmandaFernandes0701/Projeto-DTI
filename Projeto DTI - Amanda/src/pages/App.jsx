@@ -103,7 +103,7 @@ export default function App() {
         </DivInput>
 
         <DivInput>
-          <Label generic>Quantidade de cachorros pequenos:</Label>
+          <Label generic='true'>Quantidade de cachorros pequenos:</Label>
           <DivRow>
             <Button onClick={() => handleIncrementDecrement(false, false)}>
               -
@@ -119,7 +119,7 @@ export default function App() {
         </DivInput>
 
         <DivInput>
-          <Label generic>Quantidade de cachorros grandes:</Label>
+          <Label generic='true'>Quantidade de cachorros grandes:</Label>
           <DivRow>
             <Button onClick={() => handleIncrementDecrement(true, false)}>
               -
@@ -139,14 +139,14 @@ export default function App() {
 
       {showResult && (
         <DivResult>
-          <DivRow flexColumn>
+          <DivRow flexcolumn='true'>
             <LabelResult>
               O Pet shop com o melhor custo benefício é:
             </LabelResult>
             <PurpleLabelResult>{bestPetShop}</PurpleLabelResult>
           </DivRow>
 
-          <DivRow flexColumn>
+          <DivRow flexcolumn='true'>
             <LabelResult>O preço total a ser pago é:</LabelResult>
             {showFinalPrice && (
               <PurpleLabelResult>R${finalPrice},00</PurpleLabelResult>
