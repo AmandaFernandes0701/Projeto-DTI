@@ -19,6 +19,7 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { calculateBestPetShop } from '../functions/calculatePrices';
+import DogQuantityInput from '../components/dogQuantityInput';
 
 export default function App() {
   const [selectedDate, setSelectedDate] = useState('');
@@ -30,13 +31,15 @@ export default function App() {
   const [showFinalPrice, setShowFinalPrice] = useState(false);
 
   const handleIncrementDecrement = (isBigDog, increment) => {
+    const operation = increment ? 1 : -1;
+
     if (isBigDog) {
-      const newNumBigDogs = increment ? numBigDogs + 1 : numBigDogs - 1;
+      const newNumBigDogs = numBigDogs + operation;
       if (newNumBigDogs >= 0) {
         setNumBigDogs(newNumBigDogs);
       }
     } else {
-      const newNumSmallDogs = increment ? numSmallDogs + 1 : numSmallDogs - 1;
+      const newNumSmallDogs = numSmallDogs + operation;
       if (newNumSmallDogs >= 0) {
         setNumSmallDogs(newNumSmallDogs);
       }
@@ -102,37 +105,21 @@ export default function App() {
           />
         </DivInput>
 
-        <DivInput>
-          <Label generic='true'>Quantidade de cachorros pequenos:</Label>
-          <DivRow>
-            <Button onClick={() => handleIncrementDecrement(false, false)}>
-              -
-            </Button>
-            <NumberInput
-              value={numSmallDogs}
-              onChange={(e) => updateNumDogs(false, e.target.value)}
-            />
-            <Button onClick={() => handleIncrementDecrement(false, true)}>
-              +
-            </Button>
-          </DivRow>
-        </DivInput>
+        <DogQuantityInput
+          label='Quantidade de cachorros pequenos'
+          value={numSmallDogs}
+          onDecrement={() => handleIncrementDecrement(false, false)}
+          onIncrement={() => handleIncrementDecrement(false, true)}
+          onChange={(e) => updateNumDogs(false, e.target.value)}
+        />
 
-        <DivInput>
-          <Label generic='true'>Quantidade de cachorros grandes:</Label>
-          <DivRow>
-            <Button onClick={() => handleIncrementDecrement(true, false)}>
-              -
-            </Button>
-            <NumberInput
-              value={numBigDogs}
-              onChange={(e) => updateNumDogs(true, e.target.value)}
-            />
-            <Button onClick={() => handleIncrementDecrement(true, true)}>
-              +
-            </Button>
-          </DivRow>
-        </DivInput>
+        <DogQuantityInput
+          label='Quantidade de cachorros grandes'
+          value={numBigDogs}
+          onDecrement={() => handleIncrementDecrement(true, false)}
+          onIncrement={() => handleIncrementDecrement(true, true)}
+          onChange={(e) => updateNumDogs(true, e.target.value)}
+        />
       </DivMain>
 
       <CalculateButton onClick={handleCalculatePrice}>Enviar</CalculateButton>
