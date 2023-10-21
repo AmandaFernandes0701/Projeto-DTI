@@ -8,8 +8,8 @@ Em suma, o projeto realiza a seguinte ação: a partir dos dados fornecidos pelo
 - [Premissas Assumidas](#premissas-assumidas)
 - [Decisões de projeto](#decisões-de-projeto)
   - [Código Frontend](#código-frontend)
-  - [Testes Unitários](#testes-unitários)
-- [Decisões de projeto](#decisões-de-projeto)
+  - [Código compilado no Terminal](#código-compilado-no-terminal)
+- [Testes Unitários](#testes-unitários)
 - [Instruções para executar o sistema](#instruções-para-executar-o-sistema)
 
 ## Premissas Assumidas
