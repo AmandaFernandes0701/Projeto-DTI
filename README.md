@@ -1,82 +1,70 @@
-# Projeto DTI --> Caso Pet Shop 🐶🐾
+DTI Project --> Pet Shop Case 🐶🐾
+In summary, this project performs the following action: based on the data provided by the user, it checks which Pet Shop offers the best cost-benefit ratio for the customer, considering the inserted data. For the execution of this project, it is valid to emphasize that I worked on two fronts:
 
-Em resumo, este projeto realiza a seguinte ação: com base nos dados fornecidos pelo usuário, verifica qual Pet Shop oferece a melhor relação custo-benefício para o cliente, considerando os dados inseridos. Para a execução deste projeto, é válido enfatizar que atuei em duas frentes:
+Frontend that can be run in a web browser.
+JavaScript code that runs in the terminal.
+Summary
+Assumptions Made
+Project Decisions
+Frontend Code
+Terminal Compiled Code
+Unit Tests
+Instructions to Run the System
+Assumptions Made
+When developing the solution to determine the best pet shop for Eduardo to take his dogs based on cost and proximity criteria, the following assumptions were made:
 
-- Frontend que pode ser executado em um navegador da web.
-- Código JavaScript que é executado no terminal.
+Stable Pricing: It is considered that the price information provided for the pet shops "Meu Canino Feliz," "Vai Rex," and "ChowChawgas" remains constant during the program's execution, regardless of unspecified temporal variations. In other words, the prices quoted for small and large dog grooming services do not change beyond what is specified for weekdays and weekends.
 
-## Sumário
-- [Suposições Adotadas](#suposições-adotadas)
-- [Decisões do Projeto](#decisões-do-projeto)
-  - [Código Frontend](#código-frontend)
-  - [Código Compilado no Terminal](#código-compilado-no-terminal)
-- [Testes Unitários](#testes-unitários)
-- [Instruções para Executar o Sistema](#instruções-para-executar-o-sistema)
+Cost-effectiveness as the Sole Predictive Factor: The primary criterion for determining the best pet shop is the total grooming cost, considering the distance to Eduardo's kennel and the prices for small and large dogs. Other factors, such as service quality, waiting time, availability, or additional amenities that a pet shop may offer, are not considered.
 
-## Suposições Adotadas
+Accurate Location Information: The distance between Eduardo's kennel and the pet shops (Meu Canino Feliz, Vai Rex, and ChowChawgas) is accurately provided and is static. Variable factors, such as traffic, which could affect the actual travel time, are not considered.
 
-Ao desenvolver a solução para determinar o melhor pet shop para Eduardo levar seus cães com base em critérios de custo e proximidade, adotaram-se as seguintes suposições:
+Tiebreaker Resolved by Proximity: In case of a tie between two or more pet shops in terms of total cost, the final decision will be based on physical proximity. The pet shop closest to Eduardo's kennel will be considered the best in case of a tie.
 
-1. **Precificação Estável:** Considera-se que as informações de preços fornecidas para os pet shops "Meu Canino Feliz", "Vai Rex" e "ChowChawgas" permanecem constantes durante a execução do programa, independentemente de variações temporais não especificadas. Em outras palavras, os preços citados para os serviços de banho de cães pequenos e grandes não mudam além dos especificados para dias de semana e finais de semana.
+Correct Input Data Provided: It is assumed that the user will input the necessary information correctly and in the expected format, including the size of the dogs (small or large) and the date they intend to schedule the grooming.
 
-2. **Custo-eficácia como Único Fator Preditivo:** O principal critério para determinar o melhor pet shop é o custo total do banho, considerando a distância até o canil de Eduardo e os preços para cães pequenos e grandes. Outros fatores, como qualidade do serviço, tempo de espera, disponibilidade ou comodidades adicionais que um pet shop possa oferecer, não são considerados.
+These assumptions are essential for the correct execution of the algorithm to determine the best pet shop and help establish the system's criteria and limitations, providing a solid foundation for decision-making.
 
-3. **Informações de Localização Precisas:** A distância entre o canil de Eduardo e os pet shops (Meu Canino Feliz, Vai Rex e ChowChawgas) é fornecida com precisão e é estática. Fatores variáveis, como tráfego, que poderiam afetar o tempo de deslocamento real, não são considerados.
+Project Decisions
+Throughout the project implementation, several decisions were made based on my preferences and knowledge in specific areas. Therefore, I chose to use the JavaScript language since it is a language I am already familiar with. Additionally, as mentioned earlier, I decided to go beyond what was proposed in the case and also implemented the frontend (responsive and accessible). Thus, the project decisions will be detailed in two aspects. Furthermore, regarding the logic of the functions to calculate the prices, I decided to use the same function for both the frontend code executed in the browser and the JavaScript code compiled in the terminal. This decision was significant for the project's development as it saved a lot of time.
 
-4. **Desempate Resolvido pela Proximidade:** Em caso de empate entre dois ou mais pet shops em termos de custo total, a decisão final será baseada na proximidade física. O pet shop mais próximo do canil de Eduardo será considerado o melhor em caso de empate.
+Regarding code standardization, I paid attention to the following points:
 
-5. **Entrada de Dados Correta Fornecida:** Supõe-se que o usuário inserirá as informações necessárias corretamente e no formato esperado, incluindo o tamanho dos cães (pequenos ou grandes) e a data em que pretende agendar o banho.
+Folder structure and organization.
+Standardization of variable names, folders, and general files (CamelCase).
+Standardization of folder and file names in "pages" (PascalCase).
+Configuration of Eslint + Prettier + Editor config.
+Default language: English.
+Frontend Code
+First of all, I decided to start with the system design since this is one of my favorite parts. For this reason, I used Figma to test different designs and chose a design inspired by the Rocketseat website. I like high-contrast colors and the combination of purple with black, which I found appealing. To do this, I inspected the elements of the Rocketseat website to capture specific values for each component.
 
-Essas suposições são essenciais para a execução correta do algoritmo de determinação do melhor pet shop e ajudam a estabelecer os critérios e limitações do sistema, fornecendo uma base sólida para a tomada de decisões.
+Rocketseat Website
 
-## Decisões do Projeto
+Next, I added all the buttons and input fields in the JSX file. I considered using a library to get ready-made components, such as Bootstrap or Ant Design, for these elements, but I chose to create them manually since they were relatively simple. Then, I decided to build everything on a single page to facilitate error identification, logic failures, and overall code understanding. Following that, I created logic to increment or decrement the number of dogs when the buttons were clicked.
 
-Ao longo da implementação do projeto, várias decisões foram tomadas com base em minhas preferências e conhecimento em áreas específicas. Portanto, optei por usar a linguagem JavaScript, pois é uma linguagem com a qual já estou familiarizada. Além disso, como mencionado anteriormente, decidi ir além do que foi proposto no caso e também implementei o frontend (responsivo e acessível). Assim, as decisões do projeto serão detalhadas em duas vertentes. Além disso, em relação à lógica das funções para calcular os preços, decidi usar a mesma função tanto para o código frontend executado no navegador quanto para o código JavaScript compilado no terminal. Essa decisão foi significativa para o desenvolvimento do projeto, pois economizou muito tempo.
+I also added some Eslint and Prettier configurations to streamline my work and improve code standardization and aesthetics. Additionally, I created a "Themes" folder in the "styles" directory to simplify style adjustments based on the web application's theme.
 
-Quanto à padronização do código, prestei atenção aos seguintes pontos:
+After that, I started structuring the system's logic. Initially, I tested if the function was correctly fetching the data. To do this, I used an extension called "Console Ninja," which conveniently displays the results of console.log directly in Visual Studio Code. I began by calculating the values only for "Meu Canino Feliz" to ensure the results were correct. Next, I developed the functions to calculate the prices for "Vai Rex" and "ChowChawgas." Since I hadn't performed unit tests until then, I manually calculated some values and compared them with what was printed in the console. When I confirmed that the results matched the expected ones, I started working on the logic for prioritization based on distance. To implement this functionality, I decided to create an object for each of the pet shops. These objects contained the following information: "name," "price," and "distance." Then, I created a function that generated an array with the objects that had the smallest values (in case of a tie). From there, I called a function to sort this array in ascending order based on the distance value contained in each of these objects.
 
-- Estrutura e organização de pastas.
-- Padronização de nomes de variáveis, pastas e arquivos gerais (CamelCase).
-- Padronização de nomes de pastas e arquivos em "pages" (PascalCase).
-- Configuração do Eslint + Prettier + Editor config.
-- Linguagem padrão: Inglês.
+After numerous tests and adjustments, I made some changes to the style to improve the responsiveness of the frontend. Up to this point, it was responsive for all screen sizes larger than the Galaxy Fold width (280px). In the future, I plan to improve the code and reduce the number of @media queries and unnecessary <div> elements.
 
-### Código Frontend
+Finally, I came up with the idea of using toasts to make the system more dynamic and attractive. For this, I used a library called React-Toastify. I read the documentation and looked for ways to style the toasts to match the colors of the web application's theme.
 
-Antes de tudo, decidi começar pelo design do sistema, uma vez que esta é uma das minhas partes favoritas. Por esse motivo, utilizei o Figma para testar diferentes designs e escolhi um design inspirado no site da Rocketseat. Gosto de cores de alto contraste e da combinação de roxo com preto, o que achei atraente. Para isso, inspecionei os elementos do site da Rocketseat para capturar valores específicos de cada componente.
+I was also considering adding an image next to the title, for which I searched for images on the Storyset website. However, due to time constraints, I chose to postpone this and focus on creating the code compiled in the terminal, as it is a fundamental requirement of the case.
 
-[Site da Rocketseat](https://www.rocketseat.com.br/)
+In the future, I intend to style the date picker using the Material Design library, available here. I didn't do this at the time due to time constraints.
 
-Em seguida, adicionei todos os botões e campos de entrada no arquivo JSX. Considerei usar uma biblioteca para obter componentes prontos, como Bootstrap ou Ant Design, para esses elementos, mas optei por criá-los manualmente, uma vez que eram relativamente simples. Depois, decidi construir tudo em uma única página para facilitar a identificação de erros, falhas na lógica e a compreensão geral do código. A seguir, criei uma lógica para incrementar ou decrementar o número de cães quando os botões eram clicados.
+Terminal Compiled Code
+Once I finished creating the frontend code executed in the browser, I started working on the code compiled in the terminal. Since I already had a ready-made function, I was able to complete this part much more quickly. I decided to create a file called terminalFunction.js exclusively for compiling the code in the terminal. Since I only had experience running code through the terminal using C++, creating JavaScript code in this way was a rewarding and challenging experience.
 
-Também adicionei algumas configurações do Eslint e do Prettier para agilizar meu trabalho e melhorar a padronização e estética do código. Além disso, criei uma pasta "Themes" no diretório "styles" para simplificar os ajustes de estilo com base no tema da aplicação web.
+The first challenge I encountered was how to compile the code correctly in the terminal. Therefore, I researched and found an interesting way to do it. I used the readline.createInterface function and installed some necessary dependencies. Then, I made the necessary adaptations and tested the code several times.
 
-Após isso, comecei a estruturar a lógica do sistema. Inicialmente, testei se a função estava obtendo corretamente os dados. Para fazer isso, usei uma extensão chamada "Console Ninja", que exibe convenientemente os resultados do `console.log` diretamente no Visual Studio Code. Comecei calculando os valores apenas para "Meu Canino Feliz" para garantir que os resultados estivessem corretos. Em seguida, desenvolvi as funções para calcular os preços para "Vai Rex" e "ChowChawgas". Como ainda não havia realizado testes unitários até então, calcule
+Finally, when it was working perfectly, I decided to explore ways to style the terminal and make it visually appealing. I realized that I could further enhance the code, so I did the following:
 
-i manualmente alguns valores e os comparei com o que era impresso no console. Quando confirmei que os resultados correspondiam ao esperado, comecei a trabalhar na lógica de priorização com base na distância. Para implementar essa funcionalidade, decidi criar um objeto para cada um dos pet shops. Esses objetos continham as seguintes informações: "name," "price," e "distance." Em seguida, criei uma função que gerava uma matriz com os objetos que tinham os menores valores (em caso de empate). A partir disso, chamei uma função para ordenar essa matriz em ordem crescente com base no valor da distância contida em cada um desses objetos.
-
-Depois de inúmeros testes e ajustes, fiz algumas alterações no estilo para melhorar a responsividade do frontend. Até esse momento, ele era responsivo para todos os tamanhos de tela maiores que a largura do Galaxy Fold (280px). No futuro, pretendo aprimorar o código e reduzir o número de consultas `@media` e elementos `<div>` desnecessários.
-
-Por fim, tive a ideia de usar toasts para tornar o sistema mais dinâmico e atraente. Para isso, utilizei uma biblioteca chamada React-Toastify. Li a documentação e busquei maneiras de estilizar os toasts para combinar com as cores do tema da aplicação web.
-
-Também estava considerando adicionar uma imagem ao lado do título, para o qual pesquisei imagens no site [Storyset](https://storyset.com/dog). No entanto, devido a limitações de tempo, optei por adiar isso e me concentrar na criação do código compilado no terminal, pois é um requisito fundamental do caso.
-
-No futuro, pretendo estilizar o seletor de datas usando a biblioteca Material Design, disponível [aqui](https://m3.material.io/components/date-pickers/specs). Não fiz isso na época devido a restrições de tempo.
-
-### Código Compilado no Terminal
-
-Assim que terminei de criar o código frontend executado no navegador, comecei a trabalhar no código compilado no terminal. Como já tinha uma função pronta, pude concluir essa parte muito mais rapidamente. Decidi criar um arquivo chamado `terminalFunction.js` exclusivamente para compilar o código no terminal. Como eu só tinha experiência em executar código pelo terminal usando C++, fazer um código JavaScript dessa maneira foi uma experiência enriquecedora e desafiadora.
-
-O primeiro desafio que encontrei foi como compilar o código corretamente no terminal. Portanto, pesquisei e encontrei uma maneira interessante de fazer isso. Usei a função `readline.createInterface` e instalei algumas dependências necessárias. Em seguida, fiz as adaptações necessárias e testei o código várias vezes.
-
-Finalmente, quando estava funcionando perfeitamente, decidi explorar maneiras de estilizar o terminal e torná-lo visualmente atraente. Percebi que poderia aprimorar ainda mais o código, então fiz o seguinte:
-
-- Restringir o formato da entrada de data pelo usuário. Para isso, usei uma biblioteca chamada `date-fns`.
-- Permitir que o usuário chame a função novamente após sua conclusão (se desejar).
-
-## Testes Unitários
-
-Finalmente, quando concluí o código para compilação, comecei a escrever testes unitários. Decidi não realizar testes extensivos, pois calcular manualmente os valores esperados consumiria muito tempo. Para executar o arquivo `calculatePrices.test.js`, tive que configurar o Babel. Instalei a biblioteca `jest` para realizar os testes e adicionei o comando "test" no arquivo `package.json`.
+Restrict the format of the user's date input. To do this, I used a library called date-fns.
+Allow the user to call the function again after its completion (if desired).
+Unit Tests
+Finally, when I finished the code for compilation, I started writing unit tests. I decided not to perform extensive testing because manually calculating the expected values would consume too much time. To run the calculatePrices.test.js file, I had to set up Babel. I installed the jest library to perform the tests and added the "test" command to the package.json file.
 
 ## Instruções para Executar o Sistema
 
