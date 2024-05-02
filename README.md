@@ -4,6 +4,8 @@ In summary, this project performs the following action: based on the data provid
 
 - Frontend that can be run in a web browser.
 - JavaScript code that runs in the terminal.
+  
+  ![image](https://github.com/AmandaFernandes0701/Projeto-DTI/assets/116132492/1f856851-43c2-43e8-b2c9-201e1da989a5)
 
 ## Summary
 - [Assumptions Made](#assumptions-made)
