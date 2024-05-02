@@ -4,8 +4,6 @@ In summary, this project performs the following action: based on the data provid
 
 - Frontend that can be run in a web browser.
 - JavaScript code that runs in the terminal.
-  
-  ![image](https://github.com/AmandaFernandes0701/Projeto-DTI/assets/116132492/1f856851-43c2-43e8-b2c9-201e1da989a5)
 
 ## Summary
 - [Assumptions Made](#assumptions-made)
@@ -62,6 +60,9 @@ Finally, I came up with the idea of using toasts to make the system more dynamic
 I was also considering adding an image next to the title, for which I searched for images on the [Storyset website](https://storyset.com/dog). However, due to time constraints, I chose to postpone this and focus on creating the code compiled in the terminal, as it is a fundamental requirement of the case.
 
 In the future, I intend to style the date picker using the Material Design library, available [here](https://m3.material.io/components/date-pickers/specs). I didn't do this at the time due to time constraints.
+
+Here's the image that shows the final result of my frontend project:
+  ![image](https://github.com/AmandaFernandes0701/Projeto-DTI/assets/116132492/1f856851-43c2-43e8-b2c9-201e1da989a5)
 
 ### Terminal Compiled Code
 
