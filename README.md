@@ -77,6 +77,8 @@ Finally, when it was working perfectly, I decided to explore ways to style the t
 - Restrict the format of the user's date input. To do this, I used a library called `date-fns`.
 - Allow the user to call the function again after its completion (if desired).
 
+  ![image](https://github.com/AmandaFernandes0701/Projeto-DTI/assets/116132492/a5e033d1-e070-47f1-9076-fdea8dad20f3)
+
 ## Unit Tests
 
 Finally, when I finished the code for compilation, I started writing unit tests. I decided not to perform extensive testing because manually calculating the expected values would consume too much time. To run the `calculatePrices.test.js` file, I had to set up Babel. I installed the `jest` library to perform the tests and added the "test" command to the `package.json` file.
